@@ -1,14 +1,13 @@
 import cartLogo from '../assets/cart.svg';
 
 export const CartWidget = () => {
+    let contador = 4;
+    
     return (
         <>
             <img src={cartLogo} alt="cartLogo" className='cartLogo'/>
-            <span className='contador'>5</span>
+            <span className='contador'>{contador}</span>
         </>
-
     );
 
 };
-
-//El contador tiene que ser una variable
