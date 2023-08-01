@@ -9,8 +9,8 @@ function App() {
       <header className='header'>
         <NavBar/>
       </header>
-      <main>
-        <ItemListContainer saludo="Bienvenidos!"/>
+      <main className='main'>
+        <ItemListContainer/>
       </main>
     </>
   )

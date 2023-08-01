@@ -1,5 +1,10 @@
-export const ItemListContainer = ({saludo}) => {
+import {ItemList} from './ItemList';
+
+export const ItemListContainer = () => {
     return (
-        <h1 data-greeting="saludo">{saludo}</h1>
+        <>
+        <h1 className='tiendaTitle'>TIENDA</h1>
+        <ItemList/>
+        </>
     );
 };
