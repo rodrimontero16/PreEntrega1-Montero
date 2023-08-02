@@ -4,7 +4,7 @@ export const products = [
         name: 'Iphone 12',
         price: 685,
         stock: 5,
-        imageUrl: '../src/img/i12-black.png',
+        imageUrl: './src/img/i12-black.png',
         // colors: [
         // {
         //     name: 'Blue',
@@ -33,7 +33,7 @@ export const products = [
         name: 'Iphone 13',
         price: 815,
         stock: 20,
-        imageUrl: '../src/img/i13-blue.png',
+        imageUrl: './src/img/i13-blue.png',
         // colors: [
         //     {
         //         name: 'Blue',
@@ -66,7 +66,7 @@ export const products = [
         name: 'Iphone 14',
         price: 900,
         stock: 38,
-        imageUrl: '../src/img/i14-midnight.png',
+        imageUrl: './src/img/i14-midnight.png',
         // colors: [
         //     {
         //         name: 'Midnight',
@@ -95,7 +95,7 @@ export const products = [
         name: 'Iphone 14 PRO',
         price: 1140,
         stock: 35,
-        imageUrl: '../src/img/i14pro-black.png',
+        imageUrl: './src/img/i14pro-black.png',
         // colors: [
         //     {
         //         name: 'Black',
@@ -120,7 +120,7 @@ export const products = [
         name: 'Macbook Air',
         price: 1000,
         stock: 5,
-        imageUrl: '../src/img/mac-air.png',
+        imageUrl: './src/img/mac-air.png',
         // img: [
         //     {
         //         imagePosition: 1,
@@ -137,7 +137,7 @@ export const products = [
         name: 'Macbook Pro',
         price: 1500,
         stock: 7,
-        imageUrl: '../src/img/mac-pro.png',
+        imageUrl: './src/img/mac-pro.png',
         // img: [
         //     {
         //         imagePosition: 1,
@@ -154,27 +154,27 @@ export const products = [
         name: 'Ipad',
         price: 500,
         stock: 45,
-        imageUrl: '../src/img/ipad.png',
+        imageUrl: './src/img/ipad.png',
     },
     {
         id: 8,
         name: 'Airpods',
         price: 350,
         stock: 40,
-        imageUrl: '../src/img/airpods.png',
+        imageUrl: './src/img/airpods.png',
     },
     {
         id: 9,
         name: 'Airpods Casque',
         price: 550,
         stock: 45,
-        imageUrl: '../src/img/casque-airpods.png',
+        imageUrl: './src/img/casque-airpods.png',
     },
     {
         id: 10,
         name: 'Smartwatch',
         price: 200,
         stock: 10,
-        imageUrl: '../src/img/smartwatch.png',
+        imageUrl: './src/img/smartwatch.png',
     },
 ];

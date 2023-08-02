@@ -68,9 +68,18 @@ main h1{
   justify-items: center;
   display: grid;
   grid-template-columns: 33% 33% 33%;
-
 }
 
+@media only screen and (max-width: 991px){
+  .itemList {
+    grid-template-columns: 50% 50%;
+  }
+}
+@media only screen and (max-width: 658px){
+  .itemList {
+    grid-template-columns: 100%;
+  }
+}
 .stockDisponible {
   display: none;
 }
