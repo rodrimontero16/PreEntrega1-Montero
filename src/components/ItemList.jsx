@@ -1,7 +1,7 @@
 import {Item} from './Item'; 
 import {products} from './database';
 
-export const ItemList = () => {
+export const ItemList = ({handleClickIncrementar}) => {
 
     return (
         <div className="itemList">
@@ -12,6 +12,7 @@ export const ItemList = () => {
             price={product.price}
             imageUrl={product.imageUrl}
             stock={product.stock}
+            handleClickIncrementar={handleClickIncrementar}
             />
         ))}
         </div>

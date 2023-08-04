@@ -4,6 +4,7 @@ export const products = [
         name: 'Iphone 12',
         price: 685,
         stock: 5,
+        type: 'Iphone',
         imageUrl: '/i12-black.png',
         // colors: [
         // {
@@ -33,6 +34,7 @@ export const products = [
         name: 'Iphone 13',
         price: 815,
         stock: 20,
+        type: 'Iphone',
         imageUrl: '/i13-blue.png',
         // colors: [
         //     {
@@ -66,6 +68,7 @@ export const products = [
         name: 'Iphone 14',
         price: 900,
         stock: 38,
+        type: 'Iphone',
         imageUrl: '/i14-midnight.png',
         // colors: [
         //     {
@@ -95,6 +98,7 @@ export const products = [
         name: 'Iphone 14 PRO',
         price: 1140,
         stock: 35,
+        type: 'Iphone',
         imageUrl: '/i14pro-black.png',
         // colors: [
         //     {
@@ -120,6 +124,7 @@ export const products = [
         name: 'Macbook Air',
         price: 1000,
         stock: 5,
+        type: 'Mac',
         imageUrl: '/mac-air.png',
         // img: [
         //     {
@@ -137,6 +142,7 @@ export const products = [
         name: 'Macbook Pro',
         price: 1500,
         stock: 7,
+        type: 'Mac',
         imageUrl: '/mac-pro.png',
         // img: [
         //     {
@@ -154,6 +160,7 @@ export const products = [
         name: 'Ipad',
         price: 500,
         stock: 45,
+        type: 'Accesorios',
         imageUrl: '/ipad.png',
     },
     {
@@ -161,6 +168,7 @@ export const products = [
         name: 'Airpods',
         price: 350,
         stock: 40,
+        type: 'Accesorios',
         imageUrl: '/airpods.png',
     },
     {
@@ -168,6 +176,7 @@ export const products = [
         name: 'Airpods Casque',
         price: 550,
         stock: 45,
+        type: 'Accesorios',
         imageUrl: '/casque-airpods.png',
     },
     {
@@ -175,6 +184,7 @@ export const products = [
         name: 'Smartwatch',
         price: 200,
         stock: 10,
+        type: 'Accesorios',
         imageUrl: '/smartwatch.png',
     },
 ];

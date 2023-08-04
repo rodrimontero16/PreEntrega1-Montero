@@ -1,7 +1,6 @@
 import cartLogo from '../assets/cart.svg';
 
-export const CartWidget = () => {
-    let contador = 4;
+export const CartWidget = ({contador}) => { 
     
     return (
         <>

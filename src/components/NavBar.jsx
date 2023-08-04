@@ -1,7 +1,7 @@
 import appleLogo from '../assets/apple.svg'
 import { CartWidget } from './CartWidget';
 
-export const NavBar = () => {
+export const NavBar = ({contador}) => {
     return(
     <nav className="navbar navbar-expand-lg navbar-dark">
     <div className="container-fluid">
@@ -23,7 +23,7 @@ export const NavBar = () => {
             <a className="nav-link" href="#">Accesorios</a>
             </li>
             <li className="nav-item">
-            <a className="nav-link" href="#"><CartWidget/></a>
+            <a className="nav-link" href="#"><CartWidget contador={contador}/></a>
             </li>
         </ul>
         </div>

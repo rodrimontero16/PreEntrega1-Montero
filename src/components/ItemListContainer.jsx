@@ -1,10 +1,10 @@
 import {ItemList} from './ItemList';
 
-export const ItemListContainer = () => {
+export const ItemListContainer = ({handleClickIncrementar}) => {
     return (
         <>
         <h1 className='tiendaTitle'>TIENDA</h1>
-        <ItemList/>
+        <ItemList handleClickIncrementar = {handleClickIncrementar}/>
         </>
     );
 };
