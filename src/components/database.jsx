@@ -124,7 +124,7 @@ export const products = [
         name: 'Macbook Air',
         price: 1000,
         stock: 5,
-        type: 'Mac',
+        type: 'MacBook',
         imageUrl: '/mac-air.png',
         // img: [
         //     {
@@ -142,7 +142,7 @@ export const products = [
         name: 'Macbook Pro',
         price: 1500,
         stock: 7,
-        type: 'Mac',
+        type: 'MacBook',
         imageUrl: '/mac-pro.png',
         // img: [
         //     {
