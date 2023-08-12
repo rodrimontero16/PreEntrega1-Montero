@@ -14,14 +14,11 @@ function App() {
   return (
     <BrowserRouter>
         <NavBar contador={contador} />
-
         <Routes>
           <Route path='/' element= {<ItemListContainer incrementarContador={incrementarContador}/>} />
-          <Route path='/categoria/:id' element={<ItemDetailContainer/>}/>
+          <Route path='/tienda/:category' element= {<ItemListContainer incrementarContador={incrementarContador}/>}/>
+          <Route path='/:category/:id' element={<ItemDetailContainer/>}/>
         </Routes>
-
-        
-
     </BrowserRouter>
   )
 }

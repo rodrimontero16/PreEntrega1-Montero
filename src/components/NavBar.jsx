@@ -15,13 +15,13 @@ export const NavBar = ({contador}) => {
         <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav categorias">
             <li className="nav-item">
-            <Link className="nav-link" id='Iphone' to={'/iphone'} >Iphone</Link>
+            <Link className="nav-link" id='Iphone' to='/tienda/iphone' >Iphone</Link>
             </li>
             <li className="nav-item">
-            <Link className="nav-link" id='Mac' to={'/macbook'} >MacBook</Link>
+            <Link className="nav-link" id='Mac' to='/tienda/macbook' >MacBook</Link>
             </li>
             <li className="nav-item">
-            <Link className="nav-link" id='Accesorios' to={'/accesorios'} >Accesorios</Link>
+            <Link className="nav-link" id='Accesorios' to='/tienda/accesorios'>Accesorios</Link>
             </li>
             <li className="nav-item">
             <Link className="nav-link" to='/carrito'><CartWidget contador={contador}/></Link>

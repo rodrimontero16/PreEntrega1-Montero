@@ -8,6 +8,7 @@ export const ItemDetailContainer = () => {
     const [producto, setProducto] = useState (null)
     const [error, setError] = useState(null)
     const {id} = useParams();
+    const category =useParams().category;
 
 
     useEffect (() =>{
