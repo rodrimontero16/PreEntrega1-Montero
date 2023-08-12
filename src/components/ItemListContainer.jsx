@@ -1,16 +1,20 @@
-import {ItemList} from './ItemList';
+import { useEffect , useState } from "react";
+import { ItemList } from './ItemList';
+import { pedirData } from "../function/pedirData";
 
-export const ItemListContainer = ({incrementarContador, filtro}) => { 
-    let title = 'TIENDA'
+export const ItemListContainer = ({incrementarContador}) => { 
     
-    if (filtro){
-        title = `${filtro.toUpperCase()}`;
-    }
+    const [productos, setProductos] = useState([])
+    
+    useEffect (() =>{
+        pedirData().then((res) =>{
+            setProductos(res)
+        })
+    }, []);
 
     return (
         <>
-        <h1 className='tiendaTitle'>{title}</h1>
-        <ItemList filtro= {filtro} incrementarContador = {incrementarContador}/>
+        <ItemList incrementarContador = {incrementarContador} productos={productos}/>
         </>
     );
 };

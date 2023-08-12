@@ -1,29 +1,28 @@
 import './App.css';
 import { NavBar } from './components/NavBar';
 import {ItemListContainer} from './components/ItemListContainer';
-import useContador from './hooks/useContador';
-import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ItemDetailContainer } from './components/ItemDetailContainer';
+import useContador from './hooks/useContador'
 
 
 
 function App() {
   const {contador, incrementarContador,decrementarContador} = useContador(0);
 
-  const [filtro, setFiltro] = useState(null); 
-
-  const handleFiltroClick = (filtroSeleccionado) => {
-    setFiltro(filtroSeleccionado);
-  };
 
   return (
-    <>
-      <header className='header'>
-        <NavBar contador={contador} handleFiltroClick={handleFiltroClick}/>
-      </header>
-      <main className='main'>
-        <ItemListContainer filtro= {filtro} incrementarContador = {incrementarContador} />
-      </main>
-    </>
+    <BrowserRouter>
+        <NavBar contador={contador} />
+
+        <Routes>
+          <Route path='/' element= {<ItemListContainer incrementarContador={incrementarContador}/>} />
+          <Route path='/categoria/:id' element={<ItemDetailContainer/>}/>
+        </Routes>
+
+        
+
+    </BrowserRouter>
   )
 }
 
