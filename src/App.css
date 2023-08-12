@@ -2,7 +2,7 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -87,4 +87,40 @@
 
 .Link {
   text-decoration: none;
+}
+
+.prodBody {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: 15% 85%;
+  grid-template-areas: 'title title title'
+                        'img description all';
+  padding: 50px;
+}
+.prodTitle {
+  color: #0C1618;
+  font-size: 50px;
+  font-weight: 600;
+  grid-area: title;
+}
+
+.prodImg {
+  grid-area: img;
+  justify-self: center;
+}
+
+.prodDescription {
+  color: #0C1618;
+  font-size: 20px;
+  grid-area: description;
+  text-align: center;
+  justify-self: center;
+  margin-top: 40px;
+  width: 80%;
+}
+
+.prodImgAll {
+  grid-area: all;
+  justify-self: center;
+  align-self: end;
 }
