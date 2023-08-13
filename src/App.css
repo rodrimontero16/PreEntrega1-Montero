@@ -4,13 +4,12 @@
   text-align: center;
   min-height: 100vh;
   width: 100%;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Itim', cursive;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #EDF7D2;
+  background-color: #F1FFFA;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,7 +20,9 @@
 
 .navbar{
   padding: 40px 0px 25px 0px;
-  background-color: #0C1618;
+  background-color: #28587B;
+  font-family: 'Itim', cursive;
+  font-family: 'Ysabeau SC', sans-serif;
 }
 
 .logo{
@@ -31,22 +32,13 @@
 #navbarNav{
   margin: 0 50%;
 } 
-@media only screen and (max-width:1200px){
-  #navbarNav{
-    margin: 0 45%;
-  }
-}
-@media only screen and (max-width:991px){
-  #navbarNav{
-    margin: 0 35%;
-  }
-}
 
 .nav-link{
-  font-size: 20px;
-  color: #EDF7D2;
+  font-size: 25px;
+  color: #F1FFFA;
   margin-right: 45px;
   cursor: pointer;
+  font-family: 'Acme', sans-serif;
 }
 
 .contador{
@@ -61,21 +53,10 @@
   grid-template-columns: 33% 33% 33%;
 }
 
-@media only screen and (max-width: 991px){
-  .itemList {
-    grid-template-columns: 50% 50%;
-  }
-}
-@media only screen and (max-width: 658px){
-  .itemList {
-    grid-template-columns: 100%;
-  }
-}
-
 .tiendaTitle {
   margin-top: 30px;
-  color: #0C1618;
-  font-family: 'Ysabeau SC', sans-serif;
+  color: #28587B;
+  font-family: 'Acme', sans-serif;
   font-size: 60px ;
 }
 
@@ -98,7 +79,7 @@
   padding: 50px;
 }
 .prodTitle {
-  color: #0C1618;
+  color: #28587B;
   font-size: 50px;
   font-weight: 600;
   grid-area: title;
@@ -107,10 +88,11 @@
 .prodImg {
   grid-area: img;
   justify-self: center;
+  scale: 0.8;
 }
 
 .prodDescription {
-  color: #0C1618;
+  color: #28587B;
   font-size: 20px;
   grid-area: description;
   text-align: center;
@@ -122,5 +104,58 @@
 .prodImgAll {
   grid-area: all;
   justify-self: center;
-  align-self: end;
+  align-self: flex-start;
+  scale: 0.8;
+}
+
+
+@media only screen and (max-width:1200px){
+  #navbarNav{
+    margin: 0 45%;
+  }
+  .prodImg, .prodImgAll{
+    scale: 0.6;
+  }
+
+}
+@media only screen and (max-width:991px){
+  #navbarNav{
+    margin: 0 35%;
+  }
+  .itemList {
+    grid-template-columns: 50% 50%;
+  }
+  .prodImg, .prodImgAll{
+    scale: 0.5;
+  }
+  .prodDescription{
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 658px){
+  .itemList {
+    grid-template-columns: 100%;
+  }
+  .prodImgAll{
+    display: none;
+  }
+  .prodBody{
+    grid-template-columns: 95%;
+    grid-template-rows: 10% 45% 45%;
+    grid-template-areas: 'title'
+                          'img'
+                          'description';
+  }
+  .prodTitle{
+    grid-area: title;
+  }
+  .prodImg{
+    grid-area: img;
+    scale: 0.6;
+  }
+  .prodDescription{
+    grid-area: description;
+    width: 100%;
+  }
 }

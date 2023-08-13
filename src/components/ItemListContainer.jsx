@@ -15,7 +15,7 @@ export const ItemListContainer = ({incrementarContador}) => {
         if (category) {
             const categoryFilter = res.filter((prod) => prod.category === category);
             setProductos(categoryFilter);
-            setTitulo(category);
+            setTitulo(category.toUpperCase());
             console.log(categoryFilter)
         } else{
             setProductos(res)
