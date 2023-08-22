@@ -1,14 +1,14 @@
 import {Item} from './Item'; 
 
-export const ItemList = ({incrementarContador, productos, titulo}) => {
+export const ItemList = ({productos, titulo}) => {
 
 
     return (
         <>
-        <h1 className='tiendaTitle'>{titulo}</h1>
+        <p className='tiendaTitle'>{titulo}</p>
         <div className="itemList">
         {productos.map((product) => (
-            <Item product={product} key={product.id} incrementarContador={incrementarContador}/>
+            <Item product={product} key={product.id} />
         ))}
         </div>
         </>

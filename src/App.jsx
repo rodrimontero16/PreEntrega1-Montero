@@ -3,23 +3,25 @@ import { NavBar } from './components/NavBar';
 import {ItemListContainer} from './components/ItemListContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ItemDetailContainer } from './components/ItemDetailContainer';
-import useContador from './hooks/useContador'
-
-
+import { Cart } from './components/Cart';
+import { CartProvider } from './context/cartContext';
+import { Home } from './components/Home';
 
 function App() {
-  const {contador, incrementarContador,decrementarContador} = useContador(0);
-
 
   return (
-    <BrowserRouter>
-        <NavBar contador={contador} />
-        <Routes>
-          <Route path='/' element= {<ItemListContainer incrementarContador={incrementarContador}/>} />
-          <Route path='/tienda/:category' element= {<ItemListContainer incrementarContador={incrementarContador}/>}/>
-          <Route path='/:category/:id' element={<ItemDetailContainer/>}/>
-        </Routes>
-    </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+            <NavBar/>
+            <Routes>
+              <Route path='/' element= {<Home />} />
+              <Route path='/tienda' element= {<ItemListContainer/>} />
+              <Route path='/tienda/:category' element= {<ItemListContainer/>}/>
+              <Route path='/tienda/:category/:id' element={<ItemDetailContainer/>}/>
+              <Route path='/carrito' element={<Cart/>}/>
+            </Routes>
+        </BrowserRouter>
+      </CartProvider>
   )
 }
 

@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import appleLogo from '../assets/apple.svg'
 import { CartWidget } from './CartWidget';
 
-export const NavBar = ({contador}) => {
+export const NavBar = () => {
+
     return(
     <nav className="navbar navbar-expand-lg navbar-dark">
     <div className="container-fluid">
@@ -14,6 +15,9 @@ export const NavBar = ({contador}) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav categorias">
+        <li className="nav-item">
+            <Link className="nav-link" id='Iphone' to='/tienda' >Tienda</Link>
+            </li>
             <li className="nav-item">
             <Link className="nav-link" id='Iphone' to='/tienda/iphone' >Iphone</Link>
             </li>
@@ -24,11 +28,10 @@ export const NavBar = ({contador}) => {
             <Link className="nav-link" id='Accesorios' to='/tienda/accesorios'>Accesorios</Link>
             </li>
             <li className="nav-item">
-            <Link className="nav-link" to='/carrito'><CartWidget contador={contador}/></Link>
+            <Link className="nav-link" to='/carrito'><CartWidget /></Link>
             </li>
         </ul>
         </div>
-        
     </div>
     </nav>
     );

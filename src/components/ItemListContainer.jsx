@@ -3,11 +3,16 @@ import { ItemList } from './ItemList';
 import { pedirData } from "../function/pedirData";
 import { useParams } from "react-router-dom";
 
-export const ItemListContainer = ({incrementarContador}) => { 
+export const ItemListContainer = () => { 
     
     const [productos, setProductos] = useState([]);
     const [titulo, setTitulo] = useState('TIENDA');
     const category = useParams().category;
+
+    // Función para capitalizar la primera letra
+    const capitalizarPrimeraLetra = (texto) => {
+        return texto.charAt(0).toUpperCase() + texto.slice(1);
+    };
 
 
     useEffect (() =>{
@@ -15,8 +20,7 @@ export const ItemListContainer = ({incrementarContador}) => {
         if (category) {
             const categoryFilter = res.filter((prod) => prod.category === category);
             setProductos(categoryFilter);
-            setTitulo(category.toUpperCase());
-            console.log(categoryFilter)
+            setTitulo(`TIENDA - ${capitalizarPrimeraLetra(category)}`);
         } else{
             setProductos(res)
             setTitulo('TIENDA')
@@ -28,7 +32,7 @@ export const ItemListContainer = ({incrementarContador}) => {
 
     return (
         <>
-            <ItemList incrementarContador={incrementarContador} productos={productos} titulo={titulo}/>
+            <ItemList productos={productos} titulo={titulo}/>
         </>
     );
 };
