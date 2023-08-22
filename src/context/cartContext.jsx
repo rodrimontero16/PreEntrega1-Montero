@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { ModalFinalizar } from "../components/ModalFinalizar";
+import { Button } from "react-bootstrap";
 
 export const CartContext = createContext();
 
@@ -26,7 +28,7 @@ export const CartProvider = ({children}) =>{
 
         Swal.mixin({
         toast: true,
-        position: 'top-end',
+        position: 'bottom-end',
         showConfirmButton: false,
         timer: 1000,
         timerProgressBar: true,
@@ -69,15 +71,22 @@ export const CartProvider = ({children}) =>{
         return carrito.reduce((acumulador, prod) => acumulador + prod.cantidad, 0 )
     };
 
+    // Funcion del total de compra
+    const total = () => {
+        return (carrito.reduce((acumulador, prod) => acumulador + (prod.price*prod.cantidad), 0 ))
+    }
+
     //Total de la compra
     const totalCompra = () => {
+        const [modalShow, setModalShow] = useState(false);
         if (carrito.length > 0){
         return (
             <>
-                <h1>El total de tu compra es: USD {carrito.reduce((acumulador, prod) => acumulador + (prod.price*prod.cantidad), 0 )}</h1>
+                <h1>El total de tu compra es: USD {total()}</h1>
                 <div className="finalizarCompra">
-                    <button type="button" className="btn btn-outline-danger" onClick={vaciarCarrito} >Vaciar</button>
-                    <button type="button" className="btn btn-outline-success">Finalizar compra</button>
+                    <button type="button" className="btn btn-outline-danger" onClick={vaciarCarrito}>Vaciar</button>
+                    <Button variant="btn btn-outline-success" onClick={() => setModalShow(true)}>Finalizar compra</Button>
+                    <ModalFinalizar show={modalShow} onHide={() => setModalShow(false)}/>
                 </div>
             </>
         )
@@ -94,7 +103,7 @@ export const CartProvider = ({children}) =>{
     }
 
     return (
-        <CartContext.Provider value= {{carrito, agregarAlCarrito, incrementarCantidad, decrementarCantidad, cantidadEnCarrito, totalCompra, vaciarCarrito, cartTitle}}>
+        <CartContext.Provider value= {{carrito, agregarAlCarrito, incrementarCantidad, decrementarCantidad, cantidadEnCarrito, totalCompra, vaciarCarrito, cartTitle, total}}>
             {children}
         </CartContext.Provider>
     );
