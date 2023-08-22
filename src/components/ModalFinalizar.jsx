@@ -1,14 +1,9 @@
-import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { CartContext } from '../context/cartContext';
 
 
 
 export function ModalFinalizar(props) {
-
-    const {total} = useContext(CartContext);
-
     return (
         <Modal
         {...props}
@@ -18,7 +13,7 @@ export function ModalFinalizar(props) {
         >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-            Tu compra es de USD {total()}
+            Detalle de tu compra:
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>

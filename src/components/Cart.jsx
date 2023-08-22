@@ -5,7 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 export const Cart = () => {    
 
-    const { carrito, incrementarCantidad, decrementarCantidad, totalCompra, cartTitle, modalShow} = useContext(CartContext);
+    const { carrito, incrementarCantidad, decrementarCantidad, totalCompra, cartTitle} = useContext(CartContext);
     return (
         <div className="cart">
             <h1 className="cartTitle">{cartTitle}</h1>
