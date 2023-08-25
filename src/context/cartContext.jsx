@@ -2,6 +2,8 @@ import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { ModalFinalizar } from "../components/ModalFinalizar";
 import { Button } from "react-bootstrap";
+import {collection, addDoc} from 'firebase/firestore';
+import { dataBase } from "../firebase/config";
 
 export const CartContext = createContext();
 
@@ -63,6 +65,8 @@ export const CartProvider = ({children}) =>{
         if (producto && producto.cantidad > 1) {
         producto.cantidad--;
         setCarrito([...carrito]);
+        } else if (producto && (producto.cantidad = 1)){
+            eliminarProducto(producto);
         }
     };
 
@@ -102,8 +106,53 @@ export const CartProvider = ({children}) =>{
         setCartTitle('')
     }
 
+    //Eliminar producto
+    const eliminarProducto = (prod) =>{
+        const index = carrito.findIndex(prodAEliminar => prodAEliminar.id === prod.id)
+        if (index > -1) {
+            const nuevoCarrito = [...carrito];
+            nuevoCarrito.splice(index, 1);
+            setCarrito(nuevoCarrito)
+        }
+    }
+
+    //Formulario de finalizacion
+    const [datos, setDatos] = useState({
+        nombre: '',
+        apellido: '', 
+        email: ''
+    })
+
+    const handleDatos = (evento) => {
+        setDatos({
+            ...datos,
+            [evento.target.name]: evento.target.value
+        })
+    }
+
+
+    const [ordenID, setOrdenID] = useState('')
+
+    const handleConfirmar = () => {
+
+        const orden = {
+            cliente: datos,
+            productos: carrito,
+            'total USD': total()
+        }
+        console.log(orden);
+
+        const ordenRef = collection(dataBase, 'ordenes');
+        addDoc(ordenRef, orden).then((doc) => {
+            setOrdenID(doc.id)
+        });
+
+        vaciarCarrito();
+    }
+
+
     return (
-        <CartContext.Provider value= {{carrito, agregarAlCarrito, incrementarCantidad, decrementarCantidad, cantidadEnCarrito, totalCompra, vaciarCarrito, cartTitle, total}}>
+        <CartContext.Provider value= {{carrito, agregarAlCarrito, incrementarCantidad, decrementarCantidad, cantidadEnCarrito, totalCompra, vaciarCarrito, cartTitle, total, eliminarProducto, datos, handleDatos, handleConfirmar, ordenID}}>
             {children}
         </CartContext.Provider>
     );

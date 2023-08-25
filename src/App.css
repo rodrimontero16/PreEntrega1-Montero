@@ -121,6 +121,9 @@
   align-self: flex-start;
   transform: scale(0.8);
 }
+.prodImgAll:hover, .prodImg:hover{
+  transform: scale(1.2);
+}
 
 
 /*Carrito*/
@@ -189,6 +192,11 @@
 .finalizarCompra button {
   margin-right: 50px;
   font-size: 30px;
+}
+
+.detalleCompra{
+  padding-top: 150px;
+  color: #28587B;
 }
 
 /*Media queries para responsive*/

@@ -1,9 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
+import FormFInal from './FormFInal';
+import { useContext } from 'react';
+import { CartContext } from '../context/cartContext';
+import { Link } from 'react-router-dom';
 
 
 export function ModalFinalizar(props) {
+    const {handleConfirmar} = useContext(CartContext);
+
     return (
         <Modal
         {...props}
@@ -13,19 +18,14 @@ export function ModalFinalizar(props) {
         >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-            Detalle de tu compra:
+            Por favor, complete con sus datos
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <h4>Centered Modal</h4>
-            <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-            </p>
+            <FormFInal/>
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={props.onHide}>Close</Button>
+            <Link to='/detalleCompra' > <Button onClick={handleConfirmar}>Confirmar</Button> </Link>
         </Modal.Footer>
         </Modal>
     );
