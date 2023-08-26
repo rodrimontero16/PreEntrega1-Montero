@@ -16,7 +16,7 @@ export const Item = ({product}) =>{
     
     return (
     
-    <div className="card m-3 Link" style={{ width: '20rem' }} key={product.id}>
+    <div className="card m-3 Link cardProduct" style={{ width: '20rem' }} key={product.id}>
         <Link className="Link"  to={`/tienda/${product.category}/${product.id}`}>
             <img src={product.imageUrl} className="card-img-top p-3" alt={product.category}/>
         </Link>

@@ -72,6 +72,10 @@
   justify-items: center;
   display: grid;
   grid-template-columns: 33% 33% 33%;
+  min-height: 100vh;
+}
+.cardProduct{
+  height: 500px;
 }
 .tiendaTitle {
   margin-left: 30px;
