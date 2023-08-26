@@ -7,6 +7,7 @@ import { Cart } from './components/Cart';
 import { CartProvider } from './context/cartContext';
 import { Home } from './components/Home';
 import { DetalleCompra } from './components/DetalleCompra';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
               <Route path='/carrito' element={<Cart/>}/>
               <Route path='/detalleCompra' element={<DetalleCompra/>}/>
             </Routes>
+            <Footer/>
         </BrowserRouter>
       </CartProvider>
   )
