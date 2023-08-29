@@ -1,7 +1,6 @@
 #root {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
-  text-align: center;
   min-height: 100vh;
   width: 100%;   
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -24,7 +23,7 @@
 
 /*Navbar*/
 .navbar{
-  background-color: #28587B;
+  background-color: black;
   height: 80px;
   position: fixed;
   top: 0;
@@ -60,11 +59,32 @@
 }
 
 /*Home*/
-.homeTitle {
-  padding-top: 110px;
-  color: #28587B;
-  min-height: 100vh;
+.homePage{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
 }
+
+.fondoHome{
+  min-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.irTienda{
+  position: absolute;
+  top: 90px;
+  left: 45%;
+  right: 55%;
+  width: 190px
+
+} 
 
 /*Productos de la tienda*/
 .itemList {
@@ -72,10 +92,12 @@
   justify-items: center;
   display: grid;
   grid-template-columns: 33% 33% 33%;
-  min-height: 100vh;
+  min-height: calc(100vh - 306px);
 }
 .cardProduct{
   height: 500px;
+  align-items: center;
+  text-align: center;
 }
 .tiendaTitle {
   margin-left: 30px;
@@ -161,6 +183,7 @@
   border-radius: 20px;
   margin: 7px;
   padding: 15px;
+  text-align: center;
 }
 .prodDelete {
   grid-area: delete;
@@ -193,7 +216,7 @@
   font-size: 50px;
 }
 .finalizarCompra{
-  margin: 30px 0px;
+  margin: 30px 70px;
 }
 .finalizarCompra button {
   margin-right: 50px;
@@ -207,7 +230,7 @@
 
 /* Footer */
 .footerContainer {
-  background-color: #28587B;
+  background-color: black;
   min-height: 100px;
   display: flex;
   justify-content: space-between;
@@ -250,7 +273,6 @@
   border-radius: 50%;
   padding: 7px; 
   cursor: pointer;
-  background-color: #28587B;
 }
 
 .socialRed img{
@@ -259,7 +281,7 @@
 }
 
 .socialRed:hover{
-  background-color: rgb(120, 175, 223);
+  background-color:#28587B;
 }
 
 /*Media queries para responsive*/
