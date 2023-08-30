@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import FormFInal from './FormFInal';
 import { useContext } from 'react';
@@ -18,14 +17,14 @@ export function ModalFinalizar(props) {
         >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-            Por favor, complete con sus datos
+            Por favor, completa con tus datos
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <FormFInal/>
         </Modal.Body>
         <Modal.Footer>
-            <Link to='/detalleCompra' > <Button onClick={handleConfirmar}>Confirmar</Button> </Link>
+            <Link to='/detalleCompra' > <button type='submit' className='btn btn-outline-dark' onClick={handleConfirmar}>Confirmar</button> </Link>
         </Modal.Footer>
         </Modal>
     );

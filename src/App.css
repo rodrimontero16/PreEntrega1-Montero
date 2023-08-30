@@ -99,6 +99,9 @@
   align-items: center;
   text-align: center;
 }
+.cardProduct:hover{
+  box-shadow: 16px 20px 18px #5a5a5a8c;
+}
 .tiendaTitle {
   margin-left: 30px;
   padding-top: 110px;
@@ -108,9 +111,10 @@
 }
 
 .swal2-toast {
-  font-size: 14px;
+  margin-top: 110px;
+  font-size: 18px;
   padding: 10px;
-  max-width: 250px;
+  max-width: 300px;
 }
 
 /*Detalle de los productos*/
@@ -167,7 +171,7 @@
   margin-top: 2%;
   margin-left: 2%;
   align-self: start;
-  padding-top: 80px;
+  padding-top: 70px;
 }
 .cartContainer {
   color: #28587B;
@@ -176,13 +180,14 @@
   grid-template-rows: 30% 70%;
   grid-template-areas:  'title title title title'
                         'delete img cant price';
-  width: 80%;
+  width: 70%;
   align-items: center;
   justify-self: center;
-  border: solid 1px;
-  border-radius: 20px;
+  border: solid 2px;
+  border-radius: 10px;
   margin: 7px;
-  padding: 15px;
+  padding: 20px 0px 40px 10px;
+  min-height: 280px;
   text-align: center;
 }
 .prodDelete {
@@ -199,21 +204,43 @@
 }
 .prodPrecioCart{
   grid-area: price;
-  font-size: 30px;
+  font-size: 20px;
 }
 .cantidadContainer{
   grid-area: cant;
-  font-size: 25px;
+  font-size: 20px;
 }
-.btn-outline-primary{
+.btnCantidad{
   border-radius: 50%;
   margin: 9px;
   height: 40px;
   width: 40px;
 }
+.cartDetalle{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
 .totalCompra {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #28587B;
-  font-size: 50px;
+  width: 100%;
+  gap: 50px;
+}
+.btnVaciar{
+  height: 40px;
+}
+.detalleTotal{
+  font-size: 25px;
+}
+.btnEliminar{
+  font-size: 15px;
+  width: 100px;
 }
 .finalizarCompra{
   margin: 30px 70px;
@@ -223,10 +250,21 @@
   font-size: 30px;
 }
 
+
+/*Compra finalizada*/
 .detalleCompra{
   padding-top: 150px;
   color: #28587B;
 }
+
+/*Form modal*/
+.form-floating{
+  margin-top: 10px;
+}
+.totalModal {
+  margin-top: 20px;
+}
+
 
 /* Footer */
 .footerContainer {
@@ -237,7 +275,6 @@
   width: 100%;
   margin-top: 50px;
 }
-
 .footerInfo{
   display: flex;
   flex-direction: row;
@@ -246,7 +283,6 @@
   align-self: end;
   font-size: 13px;
 }
-
 .footerUbicacion {
   display: flex;
   flex-direction: row;
@@ -266,7 +302,6 @@
   padding-right: 15px;
 
 }
-
 .socialRed{
   width: 40px;
   height: 40px;
@@ -274,12 +309,10 @@
   padding: 7px; 
   cursor: pointer;
 }
-
 .socialRed img{
   width: 100%;
   height: 100%;
 }
-
 .socialRed:hover{
   background-color:#28587B;
 }
@@ -314,6 +347,35 @@
   .prodDescription{
     font-size: 15px;
   }
+  .cartContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 15% 45% 15% 15%;
+    grid-template-areas: 'title title'
+                          'img cantidad'
+                          'delete delete'
+                          'precio precio';
+    align-content: center;
+    text-align: center;
+    justify-items: center;
+    row-gap: 10px;
+    width: 80%;
+  }
+  .prodNameCart{
+    grid-area: title;
+  }
+  .prodImgCart {
+    grid-area: img;
+  }
+  .cantidadContainer{
+    grid-area: cantidad;
+  }
+  .prodDelete{
+    grid-area: delete;
+  }
+  .prodPrecioCart{
+    grid-area: precio;
+  }
 }
 @media only screen and (max-width: 658px){
   .itemList {
@@ -346,5 +408,23 @@
     padding: 30px 0px;
     row-gap: 30px;
     width: 100%;
+  }
+  .totalCompra{
+    width: 80%;
+  }
+  .detalleTotal{
+    padding-left: 20px;
+    font-size: 18px;
+  }
+  .finalizarCompra{
+    margin: 0px;
+  }
+  .finalizarCompra button {
+    margin-right: 20px;
+    font-size: 20px;
+    width: 200px;
+  }
+  .cartTitle{
+    margin-top: 50px;
   }
 }

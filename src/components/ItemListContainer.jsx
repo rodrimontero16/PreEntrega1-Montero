@@ -22,7 +22,7 @@ export const ItemListContainer = () => {
             setProductos(resp.docs.map((doc) =>{
                 return {...doc.data(), id:doc.id}
             }))
-            setTitulo(category ? (`TIENDA - ${capitalizarPrimeraLetra(category)}`) : 'TIENDA')
+            setTitulo(category ? (`TIENDA → ${capitalizarPrimeraLetra(category)}`) : 'TIENDA')
         });
     }, [category]);
 

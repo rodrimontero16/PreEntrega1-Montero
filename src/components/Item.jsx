@@ -23,7 +23,7 @@ export const Item = ({product}) =>{
         <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
             <p className="price">USD {product.price}</p>
-            <button className="btn btn-outline-success" onClick={handleButtonClick} id={`${product.id}`}>Añadir</button>
+            <button className="btn btn-dark" onClick={handleButtonClick} id={`${product.id}`}>Añadir</button>
         </div>
     </div>
     

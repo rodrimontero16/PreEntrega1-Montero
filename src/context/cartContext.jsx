@@ -30,9 +30,9 @@ export const CartProvider = ({children}) =>{
 
         Swal.mixin({
         toast: true,
-        position: 'bottom-end',
+        position: 'top-end',
         showConfirmButton: false,
-        timer: 1000,
+        timer: 1500,
         timerProgressBar: true,
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -86,9 +86,12 @@ export const CartProvider = ({children}) =>{
         if (carrito.length > 0){
         return (
             <>
-                <h1>El total de tu compra es: USD {total()}</h1>
+                <div className="cartDetalle">
+                    <h1 className="detalleTotal">El total de tu compra es: USD {total()}</h1>
+                    <button type="button" className="btn btn-outline-danger btnVaciar" onClick={vaciarCarrito}>Vaciar</button>
+                </div>
+                
                 <div className="finalizarCompra">
-                    <button type="button" className="btn btn-outline-danger" onClick={vaciarCarrito}>Vaciar</button>
                     <Button variant="btn btn-outline-success" onClick={() => setModalShow(true)}>Finalizar compra</Button>
                     <ModalFinalizar show={modalShow} onHide={() => setModalShow(false)}/>
                 </div>
@@ -112,7 +115,7 @@ export const CartProvider = ({children}) =>{
         if (index > -1) {
             const nuevoCarrito = [...carrito];
             nuevoCarrito.splice(index, 1);
-            setCarrito(nuevoCarrito)
+            {(nuevoCarrito.length === 0) ? setCartTitle('') || setCarrito(nuevoCarrito) : setCarrito(nuevoCarrito)}
         }
     }
 
