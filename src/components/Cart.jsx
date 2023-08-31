@@ -1,7 +1,5 @@
 import { useContext } from "react"
 import { CartContext } from "../context/cartContext"
-import { Button } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 export const Cart = () => {    
 
@@ -29,4 +27,4 @@ export const Cart = () => {
             
         </div>
     )
-}
+};

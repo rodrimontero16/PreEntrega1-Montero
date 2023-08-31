@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { CartContext } from '../context/cartContext'
 
-export default function FormFInal() {
+export const FormFInal = () => {
     const {total, datos, handleDatos} = useContext(CartContext)
     
     return (
@@ -46,4 +46,4 @@ export default function FormFInal() {
             </div>
         </>
     )
-}
+};

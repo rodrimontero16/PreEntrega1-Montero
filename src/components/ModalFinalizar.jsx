@@ -1,11 +1,11 @@
 import Modal from 'react-bootstrap/Modal';
-import FormFInal from './FormFInal';
+import { FormFInal } from './FormFInal';
 import { useContext } from 'react';
 import { CartContext } from '../context/cartContext';
 import { Link } from 'react-router-dom';
 
 
-export function ModalFinalizar(props) {
+export const ModalFinalizar = (props) => {
     const {handleConfirmar, datos} = useContext(CartContext);
     const buttonDisabled = !(datos.nombre && datos.apellido && datos.email);
 
@@ -25,7 +25,7 @@ export function ModalFinalizar(props) {
             <FormFInal/>
         </Modal.Body>
         <Modal.Footer>
-            <Link to='/detalleCompra' onClick={(e) => {
+            <Link to='/detail' onClick={(e) => {
                 if (buttonDisabled){
                     e.preventDefault();
                 }

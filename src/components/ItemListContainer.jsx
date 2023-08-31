@@ -23,6 +23,8 @@ export const ItemListContainer = () => {
                 return {...doc.data(), id:doc.id}
             }))
             setTitulo(category ? (`TIENDA → ${capitalizarPrimeraLetra(category)}`) : 'TIENDA')
+        }).catch((err) => {
+            console.log(err)
         });
     }, [category]);
 

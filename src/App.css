@@ -16,6 +16,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  
 }
 
 .Link {
@@ -127,6 +128,7 @@
   grid-template-areas: 'title title title'
                         'img description all';
   padding: 100px 50px 0px 50px;
+  min-height: calc(100vh - 150px);
 }
 .prodTitle {
   color: #28587B;
@@ -162,7 +164,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: 84vh;
 }
 .cartTitle{
   color: #28587B;
@@ -314,6 +316,11 @@
 }
 .socialRed:hover{
   background-color:#28587B;
+}
+
+/*Final page*/
+.pageFinal {
+  min-height: 83.9vh;
 }
 
 /*Media queries para responsive*/

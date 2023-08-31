@@ -7,12 +7,10 @@ export const Item = ({product}) =>{
     //Contextos
     const {agregarAlCarrito} = useContext(CartContext);
     
-    //Funcion para usar mas de una funcion en el button
+    //Funcion agregar al carrito
     const handleButtonClick = () => {
         agregarAlCarrito(product);
     };
-
-
     
     return (
     

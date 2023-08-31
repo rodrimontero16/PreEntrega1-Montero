@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ItemDetail } from './ItemDetail'
 import { useParams } from 'react-router-dom'
 import { doc, getDoc } from 'firebase/firestore'
@@ -15,13 +15,16 @@ export const ItemDetailContainer = () => {
         const docRef = doc (dataBase, "productos", id)
         getDoc(docRef).then((resp) =>{
             setProducto({...resp.data(), id:resp.id});
-        })
+        }).catch((err) => {
+            setError("Ocurrió un error al obtener el producto");
+            console.error(err); 
+        });
     }, [id])
 
 
     return (
     <>
-        {error ?  (<h1>No se encontro el producto</h1>) : producto && <ItemDetail producto={producto}/> }
+        {error ?  ({error}) : producto && <ItemDetail producto={producto}/> }
     </>
     )
 }

@@ -6,14 +6,9 @@ export const NavBar = () => {
 
     const location = useLocation();
 
-
-    return(
-    <>
-        {location.pathname === '/' ? (
-            <span/>
-        ) : (
-
-        <nav className="navbar navbar-expand-lg navbar-dark">
+    if (location.pathname !== '/'){
+        return (
+            <nav className="navbar navbar-expand-lg navbar-dark">
             <div className="container-fluid">
                 <Link to="/">
                     <img src={appleLogo} alt="logo" className="logo"/>
@@ -42,7 +37,6 @@ export const NavBar = () => {
                 </div>
             </div>
         </nav>
-        )} 
-    </>
-    );
+        )
+    }
 };

@@ -7,7 +7,7 @@ import { dataBase } from "../firebase/config";
 
 export const CartContext = createContext();
 
-//Guardar carrito en local storage
+//Recuperar carrito en local storage
 const carritoEnLS = JSON.parse(localStorage.getItem('carrito')) || [];
 
 export const CartProvider = ({children}) =>{
@@ -117,6 +117,20 @@ export const CartProvider = ({children}) =>{
             nuevoCarrito.splice(index, 1);
             {(nuevoCarrito.length === 0) ? setCartTitle('') || setCarrito(nuevoCarrito) : setCarrito(nuevoCarrito)}
         }
+        Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            },
+            }).fire({
+            icon: 'error',
+            title: `Producto eliminado`
+            });   
     }
 
     //Formulario de finalizacion
