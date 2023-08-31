@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import appleLogo from '../assets/apple.svg'
+import  appleLogo from '../assets/apple.svg'
 import { CartWidget } from './CartWidget';
 
 export const NavBar = () => {
