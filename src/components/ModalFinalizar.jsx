@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 
 
 export function ModalFinalizar(props) {
-    const {handleConfirmar} = useContext(CartContext);
+    const {handleConfirmar, datos} = useContext(CartContext);
+    const buttonDisabled = !(datos.nombre && datos.apellido && datos.email);
 
     return (
         <Modal
@@ -24,7 +25,15 @@ export function ModalFinalizar(props) {
             <FormFInal/>
         </Modal.Body>
         <Modal.Footer>
-            <Link to='/detalleCompra' > <button type='submit' className='btn btn-outline-dark' onClick={handleConfirmar}>Confirmar</button> </Link>
+            <Link to='/detalleCompra' onClick={(e) => {
+                if (buttonDisabled){
+                    e.preventDefault();
+                }
+            }} > 
+                <button type='submit' className='btn btn-outline-dark' onClick={handleConfirmar} disabled={buttonDisabled}>
+                    Confirmar
+                </button>
+            </Link>
         </Modal.Footer>
         </Modal>
     );

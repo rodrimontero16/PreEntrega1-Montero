@@ -3,9 +3,7 @@ import { CartContext } from '../context/cartContext'
 
 export default function FormFInal() {
     const {total, datos, handleDatos} = useContext(CartContext)
-
-
-
+    
     return (
         <>
             <div className='formContainer'>

@@ -5,6 +5,7 @@
   width: 100%;   
   font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
+  text-align: center;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -119,6 +120,7 @@
 
 /*Detalle de los productos*/
 .prodBody {
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 30% 40% 30%;
   grid-template-rows: 15% 85%;
@@ -151,9 +153,6 @@
   justify-self: center;
   align-self: flex-start;
   transform: scale(0.8);
-}
-.prodImgAll:hover, .prodImg:hover{
-  transform: scale(1.2);
 }
 
 
@@ -350,7 +349,7 @@
   .cartContainer{
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 15% 45% 15% 15%;
+    grid-template-rows: 15% 55% 15% 15%;
     grid-template-areas: 'title title'
                           'img cantidad'
                           'delete delete'
