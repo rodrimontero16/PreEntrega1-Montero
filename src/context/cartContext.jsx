@@ -15,6 +15,38 @@ export const CartProvider = ({children}) =>{
     const [carrito, setCarrito] = useState(carritoEnLS)
     const [cartTitle, setCartTitle] = useState('');
 
+    //Actualizo el carrito en LS cada vez que cambia
+    useEffect (() => {
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+    }, [carrito]);
+
+    //Logica de cantidad
+    const [cantidad, setCantidad] = useState(1);
+
+    const incrementarCantidad = (productId) => {
+        const producto = carrito.find((prod) => prod.id === productId);
+        if (producto) {
+        producto.cantidad++;
+        setCarrito([...carrito]);
+        }
+    };
+
+    const decrementarCantidad = (productId) => {
+        const producto = carrito.find((prod) => prod.id === productId);
+        if (producto && producto.cantidad > 1) {
+        producto.cantidad--;
+        setCarrito([...carrito]);
+        } else if (producto && (producto.cantidad = 1)){
+            eliminarProducto(producto);
+        }
+    };
+
+    //Cantidad en carrito para mostrar en el widget
+    const cantidadEnCarrito = () => {
+        return carrito.reduce((acumulador, prod) => acumulador + prod.cantidad, 0 )
+    };
+
+    //Agregar al carrito
     const agregarAlCarrito = (product) => {
         const prodAgregado = {...product, cantidad}
         const nuevoCarrito = [...carrito]
@@ -44,71 +76,6 @@ export const CartProvider = ({children}) =>{
         });        
     };
 
-    useEffect (() => {
-        localStorage.setItem('carrito', JSON.stringify(carrito))
-    }, [carrito]);
-
-
-    //Logica de cantidad
-    const [cantidad, setCantidad] = useState(1);
-
-    const incrementarCantidad = (productId) => {
-        const producto = carrito.find((prod) => prod.id === productId);
-        if (producto) {
-        producto.cantidad++;
-        setCarrito([...carrito]);
-        }
-    };
-
-    const decrementarCantidad = (productId) => {
-        const producto = carrito.find((prod) => prod.id === productId);
-        if (producto && producto.cantidad > 1) {
-        producto.cantidad--;
-        setCarrito([...carrito]);
-        } else if (producto && (producto.cantidad = 1)){
-            eliminarProducto(producto);
-        }
-    };
-
-    //Cantidad en carrito
-    const cantidadEnCarrito = () => {
-        return carrito.reduce((acumulador, prod) => acumulador + prod.cantidad, 0 )
-    };
-
-    // Funcion del total de compra
-    const total = () => {
-        return (carrito.reduce((acumulador, prod) => acumulador + (prod.price*prod.cantidad), 0 ))
-    }
-
-    //Total de la compra
-    const totalCompra = () => {
-        const [modalShow, setModalShow] = useState(false);
-        if (carrito.length > 0){
-        return (
-            <>
-                <div className="cartDetalle">
-                    <h1 className="detalleTotal">El total de tu compra es: USD {total()}</h1>
-                    <button type="button" className="btn btn-outline-danger btnVaciar" onClick={vaciarCarrito}>Vaciar</button>
-                </div>
-                
-                <div className="finalizarCompra">
-                    <Button variant="btn btn-outline-success" onClick={() => setModalShow(true)}>Finalizar compra</Button>
-                    <ModalFinalizar show={modalShow} onHide={() => setModalShow(false)}/>
-                </div>
-            </>
-        )
-        } else {
-        return <h1 className='cartVacio'>El carrito esta vacio</h1>
-        }
-    };
-    
-
-    //Vaciar carrito
-    const vaciarCarrito = () =>{
-        setCarrito([])
-        setCartTitle('')
-    }
-
     //Eliminar producto
     const eliminarProducto = (prod) =>{
         const index = carrito.findIndex(prodAEliminar => prodAEliminar.id === prod.id)
@@ -133,6 +100,39 @@ export const CartProvider = ({children}) =>{
             });   
     }
 
+    // Valor total de la compra
+    const total = () => {
+        return (carrito.reduce((acumulador, prod) => acumulador + (prod.price*prod.cantidad), 0 ))
+    }
+
+    //Mostrar el total de la compra
+    const totalCompra = () => {
+        const [modalShow, setModalShow] = useState(false);
+        if (carrito.length > 0){
+        return (
+            <>
+                <div className="cartDetalle">
+                    <h1 className="detalleTotal">El total de tu compra es: USD {total()}</h1>
+                    <button type="button" className="btn btn-outline-danger btnVaciar" onClick={vaciarCarrito}>Vaciar</button>
+                </div>
+                
+                <div className="finalizarCompra">
+                    <Button variant="btn btn-outline-success" onClick={() => setModalShow(true)}>Finalizar compra</Button>
+                    <ModalFinalizar show={modalShow} onHide={() => setModalShow(false)}/>
+                </div>
+            </>
+        )
+        } else {
+        return <h1 className='cartVacio'>El carrito esta vacio</h1>
+        }
+    };
+    
+    //Vaciar carrito
+    const vaciarCarrito = () =>{
+        setCarrito([])
+        setCartTitle('')
+    }
+
     //Formulario de finalizacion
     const [datos, setDatos] = useState({
         nombre: '',
@@ -140,6 +140,7 @@ export const CartProvider = ({children}) =>{
         email: ''
     })
 
+    //Cambio en los datos
     const handleDatos = (evento) => {
         setDatos({
             ...datos,
@@ -147,11 +148,10 @@ export const CartProvider = ({children}) =>{
         })
     }
 
-
+    //Orden generada
     const [ordenID, setOrdenID] = useState('')
 
     const handleConfirmar = () => {
-
         const orden = {
             cliente: datos,
             productos: carrito,
@@ -166,7 +166,6 @@ export const CartProvider = ({children}) =>{
 
         vaciarCarrito();
     }
-
 
     return (
         <CartContext.Provider value= {{carrito, agregarAlCarrito, incrementarCantidad, decrementarCantidad, cantidadEnCarrito, totalCompra, vaciarCarrito, cartTitle, total, eliminarProducto, datos, handleDatos, handleConfirmar, ordenID}}>
