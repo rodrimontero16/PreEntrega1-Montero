@@ -16,26 +16,26 @@
 
 
 ## Link a la pagina deployada en netlify:
-### [https://rodrimontero.netlify.app/](https://rodrimontero.netlify.app/)
+### [https://rodrimontero.netlify.app/](https://rodrimontero.netlify.app/)()
 
 ## Imagenes ilustrativas:
 ### Home
-![Home](public\Home.png)
+![Home](https://github.com/rodrimontero16/PreEntrega2-Montero/blob/main/public/Home.png)
 
 ### Tienda
-![Tienda](public\Tienda.png)
+![Tienda](https://github.com/rodrimontero16/PreEntrega2-Montero/blob/main/public/Tienda.png)
 
 ### Categoria de productos
-![Categoria](public\Categoria.png)
+![Categoria](https://github.com/rodrimontero16/PreEntrega2-Montero/blob/main/public/Categoria.png)
 
 ### Detalle de los productos
-![DetalleProducto](public\DetalleProducto.png)
+![DetalleProducto](https://github.com/rodrimontero16/PreEntrega2-Montero/blob/main/public/DetalleProducto.png)
 
 ### Carrito
-![Carrito](public\Carrito.png)
+![Carrito](https://github.com/rodrimontero16/PreEntrega2-Montero/blob/main/public/Carrito.png)
 
 ### Modal de finalizacion 
-![ModalFinalizacion](public\ModalFinalizacion.png)
+![ModalFinalizacion](https://github.com/rodrimontero16/PreEntrega2-Montero/blob/main/public/ModalFinalizacion.png)
 
 ### Pagina final
-![FinalPage](public\FinalPage.png)
+![FinalPage](https://github.com/rodrimontero16/PreEntrega2-Montero/blob/main/public/FinalPage.png)
