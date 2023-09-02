@@ -16,7 +16,7 @@
 
 
 ## Link a la pagina deployada en netlify:
-### [https://rodrimontero.netlify.app/](https://rodrimontero.netlify.app/)()
+### [https://rodrimontero.netlify.app/](https://rodrimontero.netlify.app/)
 
 ## Imagenes ilustrativas:
 ### Home
