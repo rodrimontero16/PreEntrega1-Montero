@@ -10,6 +10,7 @@ export const CartContext = createContext();
 //Recuperar carrito en local storage
 const carritoEnLS = JSON.parse(localStorage.getItem('carrito')) || [];
 
+//Creo un componente para pasar todas las funciones y variables por context
 export const CartProvider = ({children}) =>{
     //Logica para el carrito
     const [carrito, setCarrito] = useState(carritoEnLS)
@@ -20,7 +21,7 @@ export const CartProvider = ({children}) =>{
         localStorage.setItem('carrito', JSON.stringify(carrito))
     }, [carrito]);
 
-    //Logica de cantidad
+    //Logica de cantidad en carrito
     const [cantidad, setCantidad] = useState(1);
 
     const incrementarCantidad = (productId) => {
@@ -41,7 +42,7 @@ export const CartProvider = ({children}) =>{
         }
     };
 
-    //Cantidad en carrito para mostrar en el widget
+    //Muestro la cantidad de productos que existen en el carrito en el widget
     const cantidadEnCarrito = () => {
         return carrito.reduce((acumulador, prod) => acumulador + prod.cantidad, 0 )
     };
