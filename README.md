@@ -12,7 +12,7 @@
 
 
 ## Link a la pagina deployada en Netlify:
-### [https://rodrimontero.netlify.app/](https://rodrimontero.netlify.app/)
+### [https://rm-apple.netlify.app/](https://rm-apple.netlify.app/)
 
 ## Imágenes ilustrativas:
 ### Home
